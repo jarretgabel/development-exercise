@@ -1,0 +1,34 @@
+= title @post.title
+
+= content_for :side_bar do
+  %author
+    %span
+      By
+    = @post.author
+  %hr
+  = @post.posted_at
+  %hr
+  %ul
+    - @post.tags.each do |tag|
+      %li
+        = link_to "##{tag}", '#'
+
+
+%article
+  %p
+    %span
+      = @post.location
+
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas sequi ipsa odit ex quisquam blanditiis! Laudantium id deleniti, ipsum delectus? Sint perferendis accusamus, neque aliquid assumenda quos eligendi, nam consequatur consequuntur, non ea exercitationem vero doloremque ipsa temporibus sunt? Excepturi natus minima reprehenderit libero repellendus omnis quasi asperiores quam maiores delectus. Quod aliquid ullam, pariatur optio praesentium officiis tempora suscipit, ad laboriosam porro distinctio quisquam velit quam aut adipisci ex incidunt non ipsum voluptatibus voluptates totam odio. Officia dicta reiciendis sed dignissimos consequatur ut rem nostrum quis architecto facere molestias, nihil eveniet assumenda quod esse accusantium dolore quae! Totam dolores omnis earum id libero dolorum sapiente iste, quia sit quam nisi facere amet quis.
+
+  %p
+    Qui minus velit assumenda odio, sed maiores architecto quaerat modi aspernatur soluta provident illum eaque non aperiam a asperiores harum enim eligendi nemo, ipsum rem alias iste. Sed sunt eos ipsum excepturi maxime doloremque doloribus ex repudiandae quae neque, magnam soluta, ipsam delectus. Corporis alias quae facere, dignissimos, maxime quis iste dolorem, ducimus eos rem nemo dolor animi. Officia itaque labore deserunt, qui, natus magni tenetur dicta ipsa molestias consequuntur similique tempore magnam quaerat velit! Ducimus suscipit voluptatibus quos repellendus aliquam earum, ratione labore iste recusandae!
+
+  %blockquote
+    Looking at it now, last December. We were built to fall apart. Then fall back together.
+
+  %p
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus maiores numquam alias laborum, molestias fugit magnam. Voluptate praesentium dicta porro assumenda optio consectetur voluptatibus illum nesciunt veniam neque obcaecati animi, iusto aperiam perferendis ducimus, libero enim recusandae laborum. Beatae, repellendus modi. Iusto inventore aspernatur impedit aperiam dignissimos similique officia eius, vel doloremque alias placeat accusamus amet. Animi error quidem accusantium labore alias aliquid doloremque, non cumque accusamus dolor nihil sed officiis. Dolores, ipsam, nesciunt. Id quo consequatur voluptatibus maiores, ipsa modi, ducimus perferendis expedita minus facilis numquam magni quasi, molestiae nobis laudantium veritatis dicta. Ipsa eligendi consectetur impedit voluptatibus laboriosam.
+
+  %p
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At natus commodi dolorem assumenda quaerat facilis deleniti esse amet fuga, fugit reprehenderit aut debitis a, cumque perferendis obcaecati soluta ea veritatis voluptatem repellendus illum ipsum possimus perspiciatis sed! Doloribus magni quas, quia. Tempore, veniam, dicta. Optio minima delectus nisi, quod commodi.

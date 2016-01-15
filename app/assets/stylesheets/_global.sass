@@ -1,0 +1,61 @@
+html
+  box-sizing: border-box
+
+*, *:before, *:after
+  box-sizing: inherit
+
+body
+  font-family: 'copernicus'
+  margin: 0
+  padding: 0
+
+a, a:hover
+  text-decoration: none
+  color: grey
+
+a
+  transition: color, .1s, ease-in-out
+  color: grey
+
+a:hover
+  color: black
+
+ul, li
+  margin: 0
+  padding: 0
+  list-style-type: none
+
+h1
+  +tablet-desktop
+    +push(1)
+
+.container
+  +container
+  z-index: 1
+  position: relative
+  padding-left: $mobile-grid-padding
+  padding-right: $mobile-grid-padding
+
+  +tablet-desktop
+    padding-left: $tablet-desktop-grid-padding
+    padding-right: $tablet-desktop-grid-padding
+
+.content-container
+  +tablet-desktop
+    display: flex
+
+.side-bar
+  background-color: blue
+
+  +tablet-desktop
+    +span(2)
+    +push(1)
+
+.main-content
+  background-color: red
+
+  +tablet-desktop
+    +span(5)
+
+.susy-grid
+  height: 100vh

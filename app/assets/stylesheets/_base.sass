@@ -1,0 +1,133 @@
+@import susy
+
+
+// Colors
+
+$grey-lt:   #E6E6E6
+$grey:      #6C6C6C
+$grey-md:   #808080
+$grey-dk:   #5C5C5C
+
+
+// Other Vars
+
+$mobile-grid-padding:           20px
+$tablet-desktop-grid-padding:   70px
+
+$mobile-nav-height:  82px
+$desktop-nav-height: 155px
+
+$tablet-breakpoint: 576px
+$desktop-breakpoint: 960px
+$xldesktop-breakpoint: 1280px
+
+// Susy grid setup using SASS Maps
+
+$susy: (global-box-sizing: border-box, container: 85em, columns: 8, gutter-position: inside, debug: (image: show))
+
+
+
+////////////////////////////////////
+// Breakpoints /////////////////////
+////////////////////////////////////
+
+=mobile
+  @media (max-width: $tablet-breakpoint)
+    @content
+
+=mobile-tablet
+  @media (max-width: $desktop-breakpoint)
+    @content
+
+=tablet
+  @media (min-width: $tablet-breakpoint + 1) and (max-width: $desktop-breakpoint)
+    @content
+
+=tablet-desktop
+  @media (min-width: $tablet-breakpoint + 1)
+    @content
+
+=desktop
+  @media (min-width: $desktop-breakpoint + 1)
+    @content
+
+=desktop-xl
+  @media (min-width: $xldesktop-breakpoint)
+    @content
+
+=retina
+  @media (min-device-pixel-ratio: 2)
+    @content
+
+
+
+////////////////////////////////////
+// Sub-pixel font rendering ////////
+////////////////////////////////////
+
+=antialiased
+  -webkit-font-smoothing: antialiased
+  font-smoothing: antialiased
+
+=disable-antialiased
+  -webkit-font-smoothing: subpixel-antialiased
+  font-smoothing: never
+
+
+
+////////////////////////////////////
+// Absolute centering //////////////
+////////////////////////////////////
+
+=absolutely-centered
+  left: 0
+  right: 0
+  margin: 0 auto
+  position: absolute
+
+
+
+////////////////////////////////////
+// Keyframe animations /////////////
+////////////////////////////////////
+
+@keyframes spin
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(-360deg)
+
+
+
+////////////////////////////////////
+// Responsive Vertical Spacing /////
+////////////////////////////////////
+
+=vertical-spacing($type: margin, $top-multiplier: 1, $bottom-multiplier: "", $base: 24px)
+
+  @if $bottom-multiplier == ""
+    $bottom-multiplier: $top-multiplier
+
+  @if $type == margin
+    margin-top: $base * $top-multiplier
+    margin-bottom: $base * $bottom-multiplier
+
+    +tablet
+      margin-top: $base * ($top-multiplier * 1.5)
+      margin-bottom: $base * ($bottom-multiplier * 1.5)
+
+    +desktop
+      margin-top: $base * ($top-multiplier * 2)
+      margin-bottom: $base * ($bottom-multiplier * 2)
+
+  @if $type == padding
+    padding-top: $base * $top-multiplier
+    padding-bottom: $base * $bottom-multiplier
+
+    +tablet
+      padding-top: $base * ($top-multiplier * 1.5)
+      padding-bottom: $base * ($bottom-multiplier * 1.5)
+
+    +desktop
+      padding-top: $base * ($top-multiplier * 2)
+      padding-bottom: $base * ($bottom-multiplier * 2)

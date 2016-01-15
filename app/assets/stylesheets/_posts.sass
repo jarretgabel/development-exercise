@@ -1,0 +1,22 @@
+#post-background
+  background-repeat: no-repeat
+  background-size: cover
+
+  +tablet-desktop
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    max-height: 100%
+
+#post-background #post-mobile-background
+  display: block
+  width: 100%
+
+  +tablet-desktop
+    display: none
+
+.post
+  +tablet-desktop
+    padding-top: 600px

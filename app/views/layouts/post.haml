@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+
+    %title
+      Type/Code
+
+    = favicon_link_tag 'favicon.ico'
+    = stylesheet_link_tag 'application', media: 'all', :'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body{ class: (defined?(@body_classes) ? @body_classes : '') }
+
+    = render partial: 'shared/navigation'
+
+    #post-background{ style: "background-image: url(#{asset_path(@post.background)});" }
+      %img#post-mobile-background{ src: asset_path(@post.background_mobile) }
+
+    .container
+      = content_tag :h1, yield(:title)
+
+      .content-container
+
+        .side-bar
+          = yield :side_bar
+
+        .main-content
+          = yield
+
+    .susy-grid
+
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true

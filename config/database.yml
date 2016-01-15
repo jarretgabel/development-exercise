@@ -1,0 +1,27 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  username: root
+  password:
+  host: localhost
+
+development:
+  <<: *default
+  database: <%= Rails.application.secrets[:database]["database"] %>
+  username: <%= Rails.application.secrets[:database]["username"] %>
+  password: <%= Rails.application.secrets[:database]["password"] %>
+
+development:
+  <<: *default
+  database: <%= Rails.application.secrets[:database]["database"] %>
+  username: <%= Rails.application.secrets[:database]["username"] %>
+  password: <%= Rails.application.secrets[:database]["password"] %>
+
+production:
+  <<: *default
+  database: <%= Rails.application.secrets[:database]["database"] %>
+  username: <%= Rails.application.secrets[:database]["username"] %>
+  password: <%= Rails.application.secrets[:database]["password"] %>
+  host: 127.0.0.1

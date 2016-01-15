@@ -1,8 +1,13 @@
 class Post < ActiveRecord::Base
 
-  after_save :slugify
+  before_save :slugify
+  before_create :slugify
 
   validates_presence_of :title
+
+  def to_param
+    slug
+  end
 
   def author
     'Bob Loblaw'
@@ -28,9 +33,10 @@ class Post < ActiveRecord::Base
     'Ji9qebSpSlSbnsWRZnDX__MG_9520_mobile.jpg'
   end
 
+  private
+
   def slugify
     self.slug = self.title.parameterize
-    save
   end
 
 end

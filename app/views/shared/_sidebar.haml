@@ -1,0 +1,11 @@
+%author
+  %span
+    By
+  = post.author
+%hr
+= post.posted_at
+%hr
+%ul
+  - post.tags.each do |tag|
+    %li
+      = link_to "##{tag}", '#'

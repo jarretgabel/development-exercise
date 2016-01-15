@@ -25,6 +25,19 @@ ul, li
   padding: 0
   list-style-type: none
 
+h1, h2, h3, h4, h5, h6, p, blockquote
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+p
+  +primary-font
+  +vertical-spacing(padding, .25)
+  margin: 0
+  clear: both
+
+p:first-child
+  padding-top: 0
+
 h1
   +tablet-desktop
     +push(1)
@@ -44,7 +57,13 @@ h1
   +tablet-desktop
     display: flex
 
+.main-content,
 .side-bar
+  +tablet-desktop
+    +vertical-spacing(padding, .5)
+
+.side-bar
+  +secondary-font
   background-color: blue
 
   +tablet-desktop
@@ -59,3 +78,12 @@ h1
 
 .susy-grid
   height: 100vh
+
+blockquote
+  color: $grey
+  font-size: 22px
+
+  +tablet-desktop
+    +span(6)
+    +pull(1)
+    font-size: 40px

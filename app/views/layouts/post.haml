@@ -19,10 +19,14 @@
     .container
       = content_tag :h1, yield(:title)
 
-      .content-container
+      = simple_form_for @post, remote: true do |f|
+        = f.text_field :title
+        = f.submit
+
+      %article.content-container
 
         .side-bar
-          = yield :side_bar
+          = render partial: 'shared/sidebar', locals: { post: @post }
 
         .main-content
           = yield

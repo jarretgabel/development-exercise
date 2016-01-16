@@ -2,15 +2,14 @@ class PostsController < ApplicationController
 
   layout 'post'
 
-  before_action :set_body_class
+  before_action :set_body_class, :get_post, only: [:show, :update]
 
   def show
-    @post = Post.where(slug: params[:id]).first
+
   end
 
   def update
-    @post = Post.where(slug: params[:id]).first
-    @post.update_attributes(post_params)
+    @post.update_attributes post_params
 
     respond_to do |format|
       format.js { render layout: false, locals: { post: @post } }
@@ -18,6 +17,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def get_post
+    @post = Post.where(slug: params[:id]).first
+  end
 
   def set_body_class
     @body_classes = 'post'

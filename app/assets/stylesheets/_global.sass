@@ -5,7 +5,7 @@ html
   box-sizing: inherit
 
 body
-  font-family: 'copernicus'
+  +tertiary-font
   margin: 0
   padding: 0
 
@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote
   -moz-osx-font-smoothing: grayscale
 
 p
-  +primary-font
+  +secondary-font
   +vertical-spacing(padding, .25)
   margin: 0
   clear: both
@@ -63,7 +63,7 @@ h1
     +vertical-spacing(padding, .5)
 
 .side-bar
-  +secondary-font
+  +tertiary-font
   background-color: blue
 
   +tablet-desktop
@@ -80,6 +80,7 @@ h1
   height: 100vh
 
 blockquote
+  +primary-font
   color: $grey
   font-size: 22px
 
@@ -87,3 +88,52 @@ blockquote
     +span(6)
     +pull(1)
     font-size: 40px
+
+.icon-wrapper
+  transition: background-color, .1s, ease-in-out
+  width: 40px
+  height: 40px
+  cursor: pointer
+
+.pencil-icon-wrapper
+  background-color: $yellow
+
+.pencil-icon-wrapper:hover
+  background-color: saturate($yellow, 30%)
+
+.close-icon-wrapper
+  background-color: $red
+
+.close-icon-wrapper:hover
+  background-color: saturate($red, 30%)
+
+.check-icon-wrapper
+  background-color: $green
+
+.check-icon-wrapper:hover
+  background-color: saturate($green, 30%)
+
+.icon-wrapper
+  display: flex
+  align-items: center
+
+.icon-wrapper svg
+  height: 30px
+  width: 30px
+  margin: 0 auto
+
+.icon-wrapper path,
+.icon-wrapper svg
+  pointer-events: none
+
+.edit-icons-outer
+  overflow: hidden
+  width: 40px
+  height: 80px
+
+.edit-icons-inner
+  transition: transform .2s ease-in-out
+  transform: translateY(40px)
+
+.edit-icons-outer.on .edit-icons-inner
+  transform: translateY(-40px)

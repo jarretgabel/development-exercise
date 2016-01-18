@@ -23,6 +23,23 @@
         = f.text_field :title
         = f.submit
 
+      .slug-display
+        slug:
+        %span#slug-text
+          = @post.slug
+
+      .edit-icons-outer
+        .edit-icons-inner
+          .icon-wrapper.pencil-icon-wrapper
+            = render partial: 'shared/pencil_icon'
+
+          .icon-wrapper.close-icon-wrapper
+            = render partial: 'shared/close_icon'
+
+          .icon-wrapper.check-icon-wrapper
+            = render partial: 'shared/check_icon'
+
+
       %article.content-container
 
         .side-bar
